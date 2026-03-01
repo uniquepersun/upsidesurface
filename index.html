@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upside Surface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="game-container">
+
+        <canvas id="gameCanvas" width="800" height="450"></canvas>
+
+        <div id="hud" class="hidden">
+            <div id="top-hud">
+                <div id="scoreDisplay">Score: 0</div>
+                <div id="healthDisplay">♥️ ♥️ ♥️</div>
+            </div>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="objectiveDisplay">Objective: Defeat 10 Enemies</div>
+            <div id="messages"></div>
+        </div>
+
+        <div id="main-menu" class="menu-screen">
+            <div class="bubble">
+                <h1>Upside Surface</h1>
+                <div class="menu-buttons">
+                    <button class="menu-btn" id="btn-new-game">New Game</button>
+                    <button class="menu-btn" id="btn-level-select">Level Select</button>
+                    <button class="menu-btn" id="btn-instructions">Instructions</button>
+                    <button class="menu-btn" id="btn-exit">Exit Game</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="level-menu" class="menu-screen hidden">
+            <div class="bubble">
+                <h1>Level Select</h1>
+                <div class="menu-buttons">
+                    <button class="menu-btn lvl-btn" data-level="1">Level 1</button>
+                    <button class="menu-btn lvl-btn" data-level="2">Level 2</button>
+                    <button class="menu-btn lvl-btn" data-level="3">Level 3</button>
+                    <button class="menu-btn btn-back">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="instructions-menu" class="menu-screen hidden">
+            <div class="bubble">
+                <h1>Instructions</h1>
+                <p>Use Arrow Keys (Up/Down/Left/Right) to move.</p>
+                <p>Press SPACEBAR to shoot bubbles/slashes.</p>
+                <p>Collect food for points. Avoid monsters and rocks!</p>
+                <div class="menu-buttons">
+                    <button class="menu-btn btn-back">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="level-complete-menu" class="menu-screen hidden">
+            <div class="bubble"
+                style="background: radial-gradient(circle at 30% 30%, rgba(200, 255, 200, 0.9), rgba(150, 255, 150, 0.6) 50%, rgba(100, 200, 100, 0.4) 80%, rgba(255, 255, 255, 0.8) 100%);">
+                <h1 id="level-complete-title">Level 1 Complete!</h1>
+                <h2 id="level-complete-score">Score: 0</h2>
+                <h3 id="level-complete-bonus" style="color:#2c3e50;">Points +1000</h3>
+                <div class="menu-buttons" style="margin-top: 15px;">
+                    <button class="menu-btn" id="btn-next-level">Next Level</button>
+                    <button class="menu-btn" id="btn-complete-main-menu">Main Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-over-menu" class="menu-screen hidden">
+            <div class="bubble">
+                <h1>Game Over</h1>
+                <h2 id="final-score">Score: 0</h2>
+                <div class="menu-buttons">
+                    <button class="menu-btn" id="btn-restart">Restart</button>
+                    <button class="menu-btn" id="btn-main-menu">Main Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

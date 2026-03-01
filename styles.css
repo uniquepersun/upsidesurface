@@ -1,0 +1,188 @@
+:root {
+    --bg-blue: #7dcafc;
+
+    --button-gold: #e2c070;
+    --button-gold-hover: #f1dd90;
+    --bubble-glow: rgba(255, 255, 255, 0.8);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-blue);
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+#game-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #7dcafc, #1f77d0);
+
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.menu-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background: rgba(125, 202, 252, 0.3);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.bubble {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6) 50%, rgba(200, 200, 255, 0.4) 80%, rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        inset -10px -10px 40px rgba(0, 0, 0, 0.1),
+        inset 10px 10px 40px rgba(255, 255, 255, 0.9),
+        0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.bubble h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.bubble p {
+    font-size: 14px;
+    color: #333;
+    padding: 0 20px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-btn {
+    appearance: none;
+    border: 2px solid #a3822a;
+    background-color: var(--button-gold);
+    color: #3a2202;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.menu-btn:hover {
+    background-color: var(--button-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-btn:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+#hud {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 0 #000;
+    z-index: 5;
+}
+
+#top-hud {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#objectiveDisplay {
+    font-size: 18px;
+    font-style: italic;
+    color: #ffe699;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#progress-container {
+    width: 100%;
+    margin-top: 5px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #32cd32, #7fff00);
+    transition: width 0.3s ease-out;
+}
+
+#messages {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#messages.show {
+    opacity: 1;
+}
+
+#healthDisplay {
+    color: #ff4757;
+}
